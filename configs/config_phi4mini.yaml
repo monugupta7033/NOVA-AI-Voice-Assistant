@@ -1,0 +1,51 @@
+# Voice Assistant Configuration - Phi-4-mini
+
+# Audio settings
+audio:
+  sample_rate: 16000  # Audio sample rate in Hz
+  block_duration: 0.5  # Audio processing block duration in seconds
+  channels: 1  # Mono audio
+
+# Speech-to-Text settings
+stt:
+  model_size: "small"  # Whisper model size (tiny, base, small, medium, large)
+  compute_type: "int8"  # Computation type (float32, float16, int8)
+  device: "cpu"  # Device to run inference on (cpu, cuda)
+
+# Voice Activity Detection settings
+vad:
+  threshold: 0.7  # Voice detection threshold (0.0 to 1.0)
+  min_speech_duration_ms: 150  # Minimum speech duration in milliseconds
+  speech_pad_ms: 400  # Additional padding around speech in milliseconds
+
+# LLM settings
+llm:
+  model_type: "phi4mini"  # Model type: "qwen3" or "phi4mini"
+  model_path: "models/Phi-4-mini-instruct-Q4_K_M.gguf"  # Path to the GGUF model
+  n_ctx: 2048  # Context window size
+  n_threads: 8  # Number of CPU threads to use
+  max_tokens: 2000  # Maximum tokens to generate
+  temperature: 0.8  # Sampling temperature (increased for more variety)
+  top_p: 0.9  # Top-p sampling parameter (increased for more variety)
+
+# Intent Recognition settings
+intent:
+  model_path: null  # Path to intent recognition model (if any)
+  confidence_threshold: 0.7  # Threshold for intent confidence (0.0 to 1.0)
+
+# Sentiment Analysis settings
+sentiment:
+  model_path: null  # Path to sentiment analysis model (if any)
+
+# Conversation Memory settings
+conversation_memory:
+  max_turns: 5  # Reduced to prevent context pollution
+  include_in_prompt: true  # Whether to include conversation history in LLM prompts
+
+# Gating Classifiers settings
+gating_classifiers:
+  actionable_model_path: "./models/mobilebert-finetuned-actionable"  # Path to actionable classifier model
+  actionable_threshold: 0.5  # Confidence threshold for actionable classification
+  contextable_model_path: "./models/mobilebert-finetuned-contextable"  # Path to contextable classifier model
+  contextable_threshold: 0.6  # Confidence threshold for contextable classification
+

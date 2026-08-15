@@ -1,0 +1,42 @@
+# Virtual environment
+ven/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Runtime memory
+memory/chat_history.txt
+memory/memory.json
+memory/memory.txt
+memory/memory.index
+
+# Local generated data
+memory/actionable_sentences.txt
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Temporary files
+*.tmp
+*.temp
+
+# AI model files - download separately
+models/*.gguf
+models/**/model.safetensors

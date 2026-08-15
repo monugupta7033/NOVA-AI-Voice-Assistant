@@ -1,0 +1,52 @@
+# Voice Assistant Configuration
+
+audio:
+  sample_rate: 16000
+  block_duration: 0.5
+  channels: 1
+
+stt:
+  model_size: "small"
+  compute_type: "int8"
+  device: "cpu"
+
+vad:
+  threshold: 0.5
+  min_speech_duration_ms: 150
+  speech_pad_ms: 400
+
+tts:
+  enabled: true
+  rate: 200
+  volume: 0.9
+  voice: null
+
+llm:
+  model_type: "qwen3"
+  model_path: "models/Qwen3-1.7B-Q4_0.gguf"
+  n_ctx: 8192
+  n_threads: 8
+  max_tokens: 2000
+  temperature: 0.8
+  top_p: 0.9
+
+intent:
+  model_path: null
+  confidence_threshold: 0.7
+
+sentiment:
+  model_path: null
+
+conversation_memory:
+  max_turns: 5
+  include_in_prompt: true
+
+gating_classifiers:
+  actionable_model_path: "./models/mobilebert-finetuned-actionable"
+  actionable_threshold: 0.5
+  contextable_model_path: "./models/mobilebert-finetuned-contextable"
+  contextable_threshold: 0.6
+
+weatherstack:
+  api_key: null
+  default_units: "m"
