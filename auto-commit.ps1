@@ -4,9 +4,6 @@ $changes = git status --porcelain
 
 if ($changes) {
     git add .
-    
-    $time = Get-Date -Format "yyyy-MM-dd HH:mm"
-    git commit -m "Auto commit - $time"
-    
+    git commit -m "Update NOVA project"
     git push
 }
